@@ -1,0 +1,90 @@
+export const site = {
+  name: "Calvin Lyman Real Estate",
+  shortName: "Calvin Lyman",
+  domain: "CalvinLymanRealEstate.com",
+  tagline: "OKC Metro real estate with a personal guide in your corner.",
+  description:
+    "Calvin Lyman helps buyers, sellers, veterans, heroes, and investors across the Oklahoma City metro — with licensed service in Oklahoma and Texas.",
+  email: "calvinlyman@gmail.com",
+  phone: "405-421-4220",
+  phoneHref: "tel:+14054214220",
+  emailHref: "mailto:calvinlyman@gmail.com",
+  address: {
+    street: "508 W Vandament Avenue",
+    city: "Yukon",
+    state: "Oklahoma",
+    zip: "73099",
+    full: "508 W Vandament Avenue, Yukon, Oklahoma 73099",
+  },
+  markets: ["Yukon", "Mustang", "Oklahoma City", "OKC Metro"],
+  brokerages: {
+    oklahoma: {
+      name: "Epic Real Estate",
+      state: "Oklahoma",
+    },
+    texas: {
+      name: "VIP Realty",
+      state: "Texas",
+    },
+  },
+  affiliations: [
+    {
+      name: "Homes for Heroes",
+      href: "https://www.homesforheroes.com/",
+      description: "Special savings and support for community heroes.",
+    },
+  ],
+  social: {
+    // Add real profile URLs when ready
+    facebook: "",
+    instagram: "",
+    youtube: "",
+    linkedin: "",
+    tiktok: "",
+    googleBusiness: "",
+  },
+  calendly: "", // Add Calendly URL when ready
+} as const;
+
+export const nav = [
+  {
+    label: "Buy",
+    href: "/buy",
+    children: [
+      { label: "Home Search", href: "/buy" },
+      { label: "First-Time Buyers", href: "/buy/first-time-buyers" },
+      { label: "Homes for Heroes", href: "/buy/homes-for-heroes" },
+      { label: "VA Buyers", href: "/buy/va-buyers" },
+      { label: "Investors", href: "/buy/investors" },
+    ],
+  },
+  {
+    label: "Sell",
+    href: "/sell",
+    children: [
+      { label: "Home Valuation", href: "/sell/home-valuation" },
+      { label: "Selling Process", href: "/sell/selling-process" },
+      { label: "Marketing Strategy", href: "/sell/marketing" },
+      { label: "Recent Sales", href: "/sell/recent-sales" },
+    ],
+  },
+  {
+    label: "Rentals",
+    href: "/rentals",
+    children: [
+      { label: "Available Rentals", href: "/rentals" },
+      { label: "Tenant Resources", href: "/rentals/tenants" },
+      { label: "Landlord Resources", href: "/rentals/landlords" },
+    ],
+  },
+  { label: "Resources", href: "/resources" },
+  { label: "Community", href: "/community" },
+  { label: "About", href: "/about" },
+] as const;
+
+export type LeadType =
+  | "consultation"
+  | "home-valuation"
+  | "buyer-guide"
+  | "newsletter"
+  | "general";
