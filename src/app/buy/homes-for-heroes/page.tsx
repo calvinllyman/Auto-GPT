@@ -40,14 +40,16 @@ export default function HomesForHeroesPage() {
       cta={{ label: "Start a Homes for Heroes conversation", href: "/schedule" }}
     >
       <div className="mt-8">
-        <Image
-          src={brand.homesForHeroes.src}
-          alt="Homes for Heroes Affiliate"
-          width={320}
-          height={90}
-          className="h-16 w-auto max-w-[320px] object-contain"
-          priority
-        />
+        <div className="inline-flex rounded-md bg-navy-deep px-5 py-4">
+          <Image
+            src={brand.homesForHeroes.src}
+            alt="Homes for Heroes Affiliate"
+            width={320}
+            height={90}
+            className="h-14 w-auto max-w-[280px] object-contain sm:h-16"
+            priority
+          />
+        </div>
         {!brand.homesForHeroes.isPreferred ? (
           <p className="mt-4 max-w-xl text-sm text-muted">
             Drop your official Homes for Heroes affiliate badge at{" "}

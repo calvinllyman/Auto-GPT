@@ -80,21 +80,24 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-5 border-t border-[var(--line)] pt-6">
+          <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-[var(--line)] pt-6">
             <Image
               src={brand.epic.src}
               alt="Epic Real Estate"
               width={140}
               height={72}
-              className="h-12 w-auto max-w-[140px] object-contain"
+              className="h-14 w-auto max-w-[140px] object-contain"
             />
-            <Link href="/buy/homes-for-heroes" className="inline-flex">
+            <Link
+              href="/buy/homes-for-heroes"
+              className="inline-flex rounded-md bg-navy-deep px-4 py-3"
+            >
               <Image
                 src={brand.homesForHeroes.src}
                 alt="Homes for Heroes Affiliate"
                 width={180}
                 height={48}
-                className="h-10 w-auto max-w-[180px] object-contain"
+                className="h-9 w-auto max-w-[180px] object-contain"
               />
             </Link>
           </div>
