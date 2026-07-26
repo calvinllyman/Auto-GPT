@@ -45,11 +45,17 @@ Until HubSpot/Resend are configured, local/dev submissions are accepted in demo 
 
 ## Brand assets to add
 
-Place these in `public/brand/` when ready:
+Drop these exact filenames into `public/brand/` (SVG placeholders remain until the real files appear):
 
-- `calvin-headshot.jpg` — About page photo (you already have this; drop the file in)
+| File | Used on |
+| --- | --- |
+| `public/brand/calvin-headshot.jpg` | About page + Home “About Calvin” section |
+| `public/brand/epic-real-estate.png` | Footer brokerage disclosure + About affiliations |
+| `public/brand/homes-for-heroes.png` | Homes for Heroes page + Footer affiliation area |
+
+Still needed when ready:
+
 - Official Calvin Lyman logo (currently using a wordmark)
-- Official Homes for Heroes affiliate badge from your affiliate portal
 - VIP Realty logo (Texas affiliation)
 - Official REALTOR® logo file from NAR if you prefer that over the included mark
 

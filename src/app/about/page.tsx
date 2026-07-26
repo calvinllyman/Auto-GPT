@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { existsSync } from "fs";
 import Image from "next/image";
 import Link from "next/link";
-import path from "path";
 import { PageHero } from "@/components/PageHero";
+import { getBrandAssets } from "@/lib/brand-assets";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,8 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const headshotPath = path.join(process.cwd(), "public/brand/calvin-headshot.jpg");
-  const hasHeadshot = existsSync(headshotPath);
+  const brand = getBrandAssets();
 
   return (
     <>
@@ -25,9 +23,9 @@ export default function AboutPage() {
       />
       <section className="section-shell grid gap-12 py-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="relative aspect-[4/5] overflow-hidden bg-navy">
-          {hasHeadshot ? (
+          {brand.headshot.exists ? (
             <Image
-              src="/brand/calvin-headshot.jpg"
+              src={brand.headshot.src}
               alt="Calvin Lyman, Realtor"
               fill
               className="object-cover object-top"
@@ -80,6 +78,25 @@ export default function AboutPage() {
                 <p className="mt-2 leading-relaxed text-muted">{block.copy}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-5 border-t border-[var(--line)] pt-6">
+            <Image
+              src={brand.epic.src}
+              alt="Epic Real Estate"
+              width={140}
+              height={72}
+              className="h-12 w-auto max-w-[140px] object-contain"
+            />
+            <Link href="/buy/homes-for-heroes" className="inline-flex">
+              <Image
+                src={brand.homesForHeroes.src}
+                alt="Homes for Heroes Affiliate"
+                width={180}
+                height={48}
+                className="h-10 w-auto max-w-[180px] object-contain"
+              />
+            </Link>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">

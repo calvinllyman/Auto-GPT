@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LeadForm } from "@/components/LeadForm";
+import { getBrandAssets } from "@/lib/brand-assets";
 import { site } from "@/lib/site";
 
 const pillars = [
@@ -29,6 +30,8 @@ const destinations = [
 ];
 
 export default function HomePage() {
+  const brand = getBrandAssets();
+
   return (
     <>
       <section className="relative min-h-[92vh] overflow-hidden bg-navy-deep text-white">
@@ -143,11 +146,23 @@ export default function HomePage() {
           <h2 className="mt-3 font-display text-3xl font-bold text-navy">
             People hire people.
           </h2>
-          <p className="mt-4 leading-relaxed text-muted">
-            Calvin Lyman is a Realtor serving the OKC metro through {site.brokerages.oklahoma.name},
-            with Texas business through {site.brokerages.texas.name}. The website is the place every
-            social post, seminar, QR code, and conversation should send someone next.
-          </p>
+          <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-start">
+            {brand.headshot.exists ? (
+              <div className="relative h-36 w-36 shrink-0 overflow-hidden bg-navy">
+                <Image
+                  src={brand.headshot.src}
+                  alt="Calvin Lyman, Realtor"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+            ) : null}
+            <p className="leading-relaxed text-muted">
+              Calvin Lyman is a Realtor serving the OKC metro through {site.brokerages.oklahoma.name},
+              with Texas business through {site.brokerages.texas.name}. The website is the place every
+              social post, seminar, QR code, and conversation should send someone next.
+            </p>
+          </div>
           <Link
             href="/about"
             className="mt-6 inline-flex text-sm font-semibold text-crimson hover:text-crimson-deep"

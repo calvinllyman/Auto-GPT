@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getBrandAssets } from "@/lib/brand-assets";
 import { site } from "@/lib/site";
 
 const footerLinks = [
@@ -33,6 +34,8 @@ const footerLinks = [
 ];
 
 export function Footer() {
+  const brand = getBrandAssets();
+
   return (
     <footer className="mt-auto border-t border-[var(--line)] bg-navy-deep text-white">
       <div className="section-shell grid gap-10 py-14 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
@@ -76,11 +79,11 @@ export function Footer() {
         <div className="section-shell flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap items-center gap-5">
             <Image
-              src="/brand/epic-real-estate.svg"
+              src={brand.epic.src}
               alt="Epic Real Estate"
-              width={72}
+              width={160}
               height={84}
-              className="h-14 w-auto rounded bg-white p-1"
+              className="h-14 w-auto max-w-[160px] rounded bg-white object-contain p-1.5"
             />
             <div className="text-xs leading-relaxed text-white/70">
               <p>
@@ -94,14 +97,14 @@ export function Footer() {
 
           <div className="flex flex-wrap items-center gap-4">
             <Image
-              src="/brand/realtor.svg"
+              src={brand.realtor.src}
               alt="REALTOR"
               width={44}
               height={44}
               className="h-11 w-11"
             />
             <Image
-              src="/brand/equal-housing.svg"
+              src={brand.equalHousing.src}
               alt="Equal Housing Opportunity"
               width={52}
               height={60}
@@ -109,11 +112,11 @@ export function Footer() {
             />
             <Link href="/buy/homes-for-heroes" className="inline-flex">
               <Image
-                src="/brand/homes-for-heroes.svg"
+                src={brand.homesForHeroes.src}
                 alt="Homes for Heroes Affiliate"
-                width={170}
-                height={42}
-                className="h-10 w-auto"
+                width={200}
+                height={56}
+                className="h-10 w-auto max-w-[200px] object-contain"
               />
             </Link>
           </div>

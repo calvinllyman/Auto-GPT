@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ContentPage } from "@/components/ContentPage";
+import { getBrandAssets } from "@/lib/brand-assets";
 
 export const metadata: Metadata = {
   title: "Homes for Heroes",
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomesForHeroesPage() {
+  const brand = getBrandAssets();
+
   return (
     <ContentPage
       eyebrow="Buy"
@@ -38,19 +41,32 @@ export default function HomesForHeroesPage() {
     >
       <div className="mt-8">
         <Image
-          src="/brand/homes-for-heroes.svg"
+          src={brand.homesForHeroes.src}
           alt="Homes for Heroes Affiliate"
-          width={280}
-          height={70}
-          className="h-14 w-auto"
+          width={320}
+          height={90}
+          className="h-16 w-auto max-w-[320px] object-contain"
+          priority
         />
-        <p className="mt-4 max-w-xl text-sm text-muted">
-          Official affiliate badge artwork from your Homes for Heroes portal can replace this mark.
-          Until then, this page clearly communicates the affiliation and links to the national program.{" "}
-          <Link href="https://www.homesforheroes.com/" className="font-semibold text-crimson">
-            homesforheroes.com
-          </Link>
-        </p>
+        {!brand.homesForHeroes.isPreferred ? (
+          <p className="mt-4 max-w-xl text-sm text-muted">
+            Drop your official Homes for Heroes affiliate badge at{" "}
+            <code className="text-navy">public/brand/homes-for-heroes.png</code> to replace this
+            mark. Until then, this page clearly communicates the affiliation and links to the
+            national program.{" "}
+            <Link href="https://www.homesforheroes.com/" className="font-semibold text-crimson">
+              homesforheroes.com
+            </Link>
+          </p>
+        ) : (
+          <p className="mt-4 max-w-xl text-sm text-muted">
+            Learn more about the national program at{" "}
+            <Link href="https://www.homesforheroes.com/" className="font-semibold text-crimson">
+              homesforheroes.com
+            </Link>
+            .
+          </p>
+        )}
       </div>
     </ContentPage>
   );
