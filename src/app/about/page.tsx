@@ -11,6 +11,15 @@ export const metadata: Metadata = {
     "Meet Calvin Lyman — OKC metro Realtor, Homes for Heroes affiliate, licensed in Oklahoma and Texas.",
 };
 
+const story = [
+  "For me, real estate is about much more than buying and selling property. It is about helping people make confident decisions during some of life’s biggest transitions.",
+  "I serve buyers and sellers throughout the Oklahoma City metro, with a focus on residential real estate. Whether someone is purchasing their first home, preparing to sell, relocating, or navigating an unexpected change, my goal is to make the process feel clear, organized, and personal.",
+  "Although I am early in my real estate career, I bring years of experience in communication, technology, problem-solving, and helping people navigate complicated situations. I believe clients deserve an agent who listens carefully, explains each step, follows through, and treats their goals as more than just another transaction.",
+  "My faith is central to who I am and how I serve others. My wife, Abby, and I are actively involved in our local church and in Celebrate Recovery, a Christ-centered ministry that helps people find healing, freedom, and hope. Those experiences have taught me the value of honesty, compassion, accountability, and meeting people wherever they are.",
+  "Outside of real estate, I enjoy spending time with Abby and our children, serving in our church, reading, writing, and finding new ways to support families in our community.",
+  "I would be honored to help you take the next step toward buying, selling, or finding a place to call home.",
+];
+
 export default function AboutPage() {
   const brand = getBrandAssets();
 
@@ -18,8 +27,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Calvin"
-        title="Trust is built in the story."
-        description="Why Calvin became a Realtor, how he works, and the community he serves across Oklahoma and Texas."
+        title="Helping people make confident decisions."
+        description="Real estate with clarity, follow-through, and a personal guide in your corner across the OKC metro."
       />
       <section className="section-shell grid gap-12 py-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="relative aspect-[4/5] overflow-hidden bg-navy">
@@ -38,68 +47,60 @@ export default function AboutPage() {
               </div>
               <p className="mt-6 font-display text-2xl font-bold">Calvin Lyman</p>
               <p className="mt-2 text-sm tracking-[0.2em] text-white/70 uppercase">Realtor</p>
-              <p className="mt-6 max-w-xs text-sm text-white/65">
-                Add <code className="text-white">public/brand/calvin-headshot.jpg</code> to display
-                your professional photo here.
-              </p>
             </div>
           )}
         </div>
 
         <div>
-          <p className="text-lg leading-relaxed text-muted">
-            People hire people more than they hire brokerages. Calvin Lyman Real Estate is the one
-            brand every card, QR code, social profile, and conversation should point to — with{" "}
-            {site.brokerages.oklahoma.name} in Oklahoma and {site.brokerages.texas.name} in Texas
-            as the brokerage affiliations behind the license.
-          </p>
-
-          <div className="mt-10 space-y-8">
-            {[
-              {
-                title: "Philosophy",
-                copy: "Clear communication, practical guidance, and next steps that respect your timeline. The website is the headquarters; the relationship is the business.",
-              },
-              {
-                title: "Community",
-                copy: "Rooted in the OKC metro — Yukon, Mustang, Oklahoma City, and the neighborhoods where families actually live their weeks.",
-              },
-              {
-                title: "Homes for Heroes",
-                copy: "An existing affiliation helping community heroes access savings when they buy or sell — under the same personal brand.",
-              },
-              {
-                title: "Celebrate Recovery",
-                copy: "Leadership and community involvement belong on this page. Share the details you want public, and we'll place them with the same care as the rest of your story.",
-              },
-            ].map((block) => (
-              <div key={block.title} className="border-t border-[var(--line)] pt-5">
-                <h2 className="font-display text-xl font-semibold text-navy">{block.title}</h2>
-                <p className="mt-2 leading-relaxed text-muted">{block.copy}</p>
-              </div>
+          <div className="space-y-5 text-lg leading-relaxed text-muted">
+            {story.map((paragraph) => (
+              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-[var(--line)] pt-6">
-            <Image
-              src={brand.epic.src}
-              alt="Epic Real Estate"
-              width={140}
-              height={72}
-              className="h-14 w-auto max-w-[140px] object-contain"
-            />
-            <Link
-              href="/buy/homes-for-heroes"
-              className="inline-flex rounded-md bg-navy-deep px-4 py-3"
-            >
-              <Image
-                src={brand.homesForHeroes.src}
-                alt="Homes for Heroes Affiliate"
-                width={180}
-                height={48}
-                className="h-9 w-auto max-w-[180px] object-contain"
-              />
-            </Link>
+          <div className="mt-10 border-t border-[var(--line)] pt-6">
+            <p className="text-xs font-semibold tracking-[0.22em] text-crimson uppercase">
+              Affiliations
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              When you work with Calvin, you’re supported by {site.brokerages.oklahoma.name} in
+              Oklahoma and {site.brokerages.texas.name} in Texas, with Homes for Heroes available when
+              you qualify.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <div className="flex h-14 items-center rounded-md border border-[var(--line)] bg-white px-3 py-2">
+                <Image
+                  src={brand.epic.src}
+                  alt="Epic Real Estate"
+                  width={120}
+                  height={72}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+              {brand.vip.exists ? (
+                <div className="flex h-14 items-center rounded-md bg-black px-3 py-2">
+                  <Image
+                    src={brand.vip.src}
+                    alt="VIP Realty"
+                    width={200}
+                    height={56}
+                    className="h-9 w-auto max-w-[200px] object-contain"
+                  />
+                </div>
+              ) : null}
+              <Link
+                href="/buy/homes-for-heroes"
+                className="inline-flex h-14 items-center rounded-md bg-black px-4 py-2"
+              >
+                <Image
+                  src={brand.homesForHeroes.src}
+                  alt="Homes for Heroes Affiliate"
+                  width={280}
+                  height={32}
+                  className="h-auto w-[200px] object-contain"
+                />
+              </Link>
+            </div>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">

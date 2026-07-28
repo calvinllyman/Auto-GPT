@@ -10,18 +10,26 @@ export default function MarketingPage() {
   return (
     <ContentPage
       eyebrow="Sell"
-      title="Marketing that points home"
-      description="Beautiful listing content is only useful if it creates conversations and showings."
-      intro="Calvin's broader content engine — YouTube, social, Google Business, and this website — supports every listing. Buyers are always directed back to CalvinLymanRealEstate.com."
+      title="Marketing that creates conversations"
+      description="Beautiful listing content only matters if it leads to showings and offers."
+      intro="Your listing gets professional visuals, targeted exposure, and follow-up so interested buyers don’t go cold — and every conversation stays connected to Calvin."
       points={[
         "Professional visuals and property storytelling",
         "Targeted distribution across social and local channels",
-        "Follow-up systems so interested buyers don't go cold",
+        "Follow-up systems so interested buyers don’t go cold",
         "Consistent branding that builds trust before the first tour",
       ]}
       links={[
-        { label: "Recent Sales", href: "/sell/recent-sales", description: "Results and stories coming soon." },
-        { label: "Schedule Consultation", href: "/schedule", description: "Talk through your launch plan." },
+        {
+          label: "Recent Sales",
+          href: "/sell/recent-sales",
+          description: "See local results and stories.",
+        },
+        {
+          label: "Schedule Consultation",
+          href: "/schedule",
+          description: "Talk through your launch plan.",
+        },
       ]}
       cta={{ label: "Plan your listing launch", href: "/schedule" }}
     />

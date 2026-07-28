@@ -54,7 +54,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             href="/schedule"
-            className="hidden rounded-md bg-crimson px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-crimson-deep sm:inline-flex"
+            className="hidden rounded-md bg-crimson px-4 py-2.5 text-sm font-semibold !text-white transition hover:bg-crimson-deep sm:inline-flex"
           >
             Schedule Consultation
           </Link>
@@ -104,7 +104,7 @@ export function Header() {
             ))}
             <Link
               href="/schedule"
-              className="mt-3 rounded-md bg-crimson px-4 py-3 text-center text-sm font-semibold text-white"
+              className="mt-3 rounded-md bg-crimson px-4 py-3 text-center text-sm font-semibold !text-white"
               onClick={() => setOpen(false)}
             >
               Schedule Consultation

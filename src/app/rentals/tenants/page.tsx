@@ -12,15 +12,23 @@ export default function TenantsPage() {
       eyebrow="Rentals"
       title="Tenant resources"
       description="Checklists and guidance for a smoother rental search and move-in."
-      intro="Guides, FAQs, and downloadable checklists will stack here over time as part of the Resources SEO engine."
+      intro="Use these starting points to prepare for your search, showings, and move-in. If you have questions, reach out and Calvin can help you take the next step."
       points={[
         "What to prepare before you apply",
         "Questions to ask on a showing",
         "Move-in checklist essentials",
       ]}
       links={[
-        { label: "Available Rentals", href: "/rentals", description: "Start the search conversation." },
-        { label: "Resources", href: "/resources", description: "More guides and articles." },
+        {
+          label: "Available Rentals",
+          href: "/rentals",
+          description: "Start the search conversation.",
+        },
+        {
+          label: "Resources",
+          href: "/resources",
+          description: "More guides and articles.",
+        },
       ]}
       cta={{ label: "Contact about rentals", href: "/contact" }}
     />

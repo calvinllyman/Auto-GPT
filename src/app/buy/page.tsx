@@ -12,8 +12,8 @@ export default function BuyPage() {
     <ContentPage
       eyebrow="Buy"
       title="Find the right home — with a clear plan."
-      description="Whether you're buying your first place, using VA benefits, investing, or qualifying through Homes for Heroes, Calvin helps you move with confidence."
-      intro="Home search on this site will connect to MLS/IDX in a later phase. For now, start with a consultation so Calvin can match your budget, timeline, and neighborhoods."
+      description="Whether you’re buying your first place, using VA benefits, investing, or qualifying through Homes for Heroes, you’ll move with confidence."
+      intro="Tell Calvin what you’re looking for — budget, timeline, and neighborhoods — and he’ll help you build a practical search plan for the OKC metro."
       points={[
         "OKC metro focus: Yukon, Mustang, Oklahoma City, and surrounding communities",
         "Guidance for financing conversations, offer strategy, and inspections",
@@ -43,7 +43,7 @@ export default function BuyPage() {
         {
           label: "Schedule Consultation",
           href: "/schedule",
-          description: "Tell Calvin what you're looking for.",
+          description: "Share what you’re looking for.",
         },
       ]}
       cta={{ label: "Talk with Calvin about buying", href: "/schedule" }}

@@ -13,7 +13,7 @@ export default function CommunityPage() {
       eyebrow="Community"
       title="Life around the OKC metro"
       description="Neighborhood guides, restaurants, parks, schools, HOA notes, local events, and business spotlights."
-      intro="Community content is how strangers become neighbors — and how online visitors become clients. This section will grow neighborhood by neighborhood, starting with Yukon, Mustang, and Oklahoma City."
+      intro="Exploring where to live is about more than a floor plan. Start with Yukon, Mustang, and Oklahoma City — then ask Calvin about the neighborhoods that fit your day-to-day life."
       points={[
         "Neighborhood guides with real lifestyle context",
         "Schools, parks, and daily-life amenities",

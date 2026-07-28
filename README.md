@@ -49,15 +49,20 @@ Drop these exact filenames into `public/brand/` (SVG placeholders remain until t
 
 | File | Used on |
 | --- | --- |
-| `public/brand/calvin-headshot.jpg` | About page + Home “About Calvin” section |
+| `public/brand/calvin-headshot.jpg` (or `.png`) | About page + Home “About Calvin” section |
 | `public/brand/epic-real-estate.png` | Footer brokerage disclosure + About affiliations |
+| `public/brand/vip-realty.png` | Footer Texas brokerage disclosure + About affiliations |
 | `public/brand/homes-for-heroes.png` | Homes for Heroes page + Footer affiliation area |
+
+Headshot, Epic, VIP Realty, and Homes for Heroes assets are present in the local project.
 
 Still needed when ready:
 
 - Official Calvin Lyman logo (currently using a wordmark)
-- VIP Realty logo (Texas affiliation)
 - Official REALTOR® logo file from NAR if you prefer that over the included mark
+- Calendly public event URL (`site.calendly` in `src/lib/site.ts`)
+- Optional HubSpot marketing subscription type ID
+- Resend API key for lead notification emails
 
 ## Deploy (Vercel)
 

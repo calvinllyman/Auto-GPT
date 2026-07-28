@@ -2,9 +2,9 @@ export const site = {
   name: "Calvin Lyman Real Estate",
   shortName: "Calvin Lyman",
   domain: "CalvinLymanRealEstate.com",
-  tagline: "OKC Metro real estate with a personal guide in your corner.",
+  tagline: "Clear guidance for your next move in the OKC metro.",
   description:
-    "Calvin Lyman helps buyers, sellers, veterans, heroes, and investors across the Oklahoma City metro — with licensed service in Oklahoma and Texas.",
+    "Work with Calvin Lyman to buy, sell, or invest across Yukon, Mustang, and Oklahoma City — with licensed service in Oklahoma and Texas.",
   email: "calvinlyman@gmail.com",
   phone: "405-421-4220",
   phoneHref: "tel:+14054214220",
@@ -35,15 +35,14 @@ export const site = {
     },
   ],
   social: {
-    // Add real profile URLs when ready
-    facebook: "",
+    facebook: "https://www.facebook.com/calvin.lyman",
     instagram: "",
     youtube: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/calvin-lyman/",
     tiktok: "",
     googleBusiness: "",
   },
-  calendly: "", // Add Calendly URL when ready
+  calendly: "https://calendly.com/calvinlyman/new-meeting",
 } as const;
 
 export const nav = [
@@ -77,7 +76,10 @@ export const nav = [
       { label: "Landlord Resources", href: "/rentals/landlords" },
     ],
   },
-  { label: "Resources", href: "/resources" },
+  { label: "Resources", href: "/resources", children: [
+      { label: "All Resources", href: "/resources" },
+      { label: "Videos", href: "/resources/videos" },
+    ] },
   { label: "Community", href: "/community" },
   { label: "About", href: "/about" },
 ] as const;

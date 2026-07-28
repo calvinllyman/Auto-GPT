@@ -12,11 +12,11 @@ export default function SellPage() {
       eyebrow="Sell"
       title="Sell with a plan, not a hope."
       description="Pricing, preparation, and marketing that put your home in front of the right buyers."
-      intro="Selling well starts with a clear valuation and a marketing plan that matches your timeline. Calvin keeps the process personal and the communication direct."
+      intro="Selling well starts with a clear valuation and a marketing plan that matches your timeline. You’ll get direct communication and a personal process from first conversation to closing."
       points={[
         "Data-informed pricing for Yukon, Mustang, OKC, and nearby markets",
         "Preparation guidance before photos and showings",
-        "Listing marketing that points buyers back to CalvinLymanRealEstate.com",
+        "Listing marketing designed to create real showings and offers",
       ]}
       links={[
         {
@@ -37,7 +37,7 @@ export default function SellPage() {
         {
           label: "Recent Sales",
           href: "/sell/recent-sales",
-          description: "Proof points and local results (coming soon).",
+          description: "Local results and transaction stories.",
         },
       ]}
       cta={{ label: "Request a home valuation", href: "/sell/home-valuation" }}

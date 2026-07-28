@@ -12,8 +12,8 @@ export default function FirstTimeBuyersPage() {
     <ContentPage
       eyebrow="Buy"
       title="First-time buyer guide"
-      description="Buying your first home shouldn't feel like a secret handshake. Here's the path Calvin walks with new buyers."
-      intro="This page will grow into a full downloadable guide. For now, request the guide below and Calvin will send it while the lead magnet PDF is finalized."
+      description="Buying your first home shouldn’t feel confusing. Here’s a clear path you can follow."
+      intro="Request the guide below and Calvin will send it to you, along with optional market updates if you’d like to stay in the loop."
       points={[
         "Get pre-approved before you fall in love with a house",
         "Define must-haves vs. nice-to-haves for OKC metro living",
@@ -21,8 +21,16 @@ export default function FirstTimeBuyersPage() {
         "Know what a competitive offer looks like in your price range",
       ]}
       links={[
-        { label: "Schedule a buyer consult", href: "/schedule", description: "Map your timeline and budget." },
-        { label: "Homes for Heroes", href: "/buy/homes-for-heroes", description: "See if you qualify for hero savings." },
+        {
+          label: "Schedule a buyer consult",
+          href: "/schedule",
+          description: "Map your timeline and budget.",
+        },
+        {
+          label: "Homes for Heroes",
+          href: "/buy/homes-for-heroes",
+          description: "See if you qualify for hero savings.",
+        },
       ]}
     >
       <div className="mt-10 max-w-xl">

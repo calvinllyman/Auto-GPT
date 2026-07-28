@@ -11,8 +11,8 @@ export default function VaBuyersPage() {
     <ContentPage
       eyebrow="Buy"
       title="VA buyers"
-      description="Use your VA benefit with a clear process — certificate of eligibility through closing."
-      intro="Calvin helps veteran and active-duty buyers understand how VA financing fits the homes and neighborhoods they're considering in the OKC metro."
+      description="Use your VA benefit with a clear process — from certificate of eligibility through closing."
+      intro="If you’re a veteran or active-duty buyer, Calvin can help you understand how VA financing fits the homes and neighborhoods you’re considering in the OKC metro."
       points={[
         "Confirm eligibility and lender fit early",
         "Identify VA-friendly properties and timelines",
@@ -20,8 +20,16 @@ export default function VaBuyersPage() {
         "Pair with Homes for Heroes when you also qualify",
       ]}
       links={[
-        { label: "Homes for Heroes", href: "/buy/homes-for-heroes", description: "Additional savings for heroes." },
-        { label: "Schedule Consultation", href: "/schedule", description: "Walk through your VA next steps." },
+        {
+          label: "Homes for Heroes",
+          href: "/buy/homes-for-heroes",
+          description: "Additional savings for heroes.",
+        },
+        {
+          label: "Schedule Consultation",
+          href: "/schedule",
+          description: "Walk through your VA next steps.",
+        },
       ]}
       cta={{ label: "Talk VA buying with Calvin", href: "/schedule" }}
     />

@@ -13,14 +13,17 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Let's connect"
-        description="Call, email, or send a note — every path leads back to a real conversation with Calvin."
+        title="Let’s connect"
+        description="Call, email, or send a note — you’ll reach Calvin directly."
       />
       <section className="section-shell grid gap-10 py-14 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-6">
           <div>
             <p className="text-xs font-semibold tracking-[0.2em] text-crimson uppercase">Phone</p>
-            <a href={site.phoneHref} className="mt-2 block text-2xl font-display font-bold text-navy">
+            <a
+              href={site.phoneHref}
+              className="mt-2 block font-display text-2xl font-bold text-navy"
+            >
               {site.phone}
             </a>
           </div>
@@ -50,7 +53,7 @@ export default function ContactPage() {
         <LeadForm
           type="general"
           title="Send a message"
-          subtitle="Share what you need help with. Marketing updates are optional."
+          subtitle="Tell Calvin how he can help. Marketing updates are optional."
           submitLabel="Send message"
         />
       </section>

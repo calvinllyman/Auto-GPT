@@ -7,17 +7,17 @@ import { site } from "@/lib/site";
 const pillars = [
   {
     title: "Buy with clarity",
-    copy: "First-time buyers, VA buyers, investors, and Homes for Heroes — guided with practical next steps.",
+    copy: "Whether you’re buying your first home, using VA benefits, investing, or exploring Homes for Heroes savings — you’ll get a clear plan and practical next steps.",
     href: "/buy",
   },
   {
     title: "Sell with strategy",
-    copy: "Pricing, preparation, and marketing built around one goal: the right buyer at the right number.",
+    copy: "From pricing to preparation to marketing, you’ll have a plan built around one goal: the right buyer at the right number.",
     href: "/sell",
   },
   {
     title: "Know the community",
-    copy: "Yukon, Mustang, OKC, and the neighborhoods that make daily life work for your family.",
+    copy: "Explore Yukon, Mustang, Oklahoma City, and the neighborhoods that fit the way you actually want to live.",
     href: "/community",
   },
 ];
@@ -26,6 +26,7 @@ const destinations = [
   { label: "Schedule a consultation", href: "/schedule" },
   { label: "Get a home valuation", href: "/sell/home-valuation" },
   { label: "Homes for Heroes", href: "/buy/homes-for-heroes" },
+  { label: "Watch educational reels", href: "/resources/videos" },
   { label: "Browse resources", href: "/resources" },
 ];
 
@@ -50,11 +51,11 @@ export default function HomePage() {
             Calvin Lyman Real Estate
           </p>
           <h1 className="animate-rise-delay-1 mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
-            Your OKC metro move, led by someone you can actually call.
+            {site.tagline}
           </h1>
           <p className="animate-rise-delay-2 mt-5 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
             Buying, selling, and investing across Yukon, Mustang, and Oklahoma City — with licensed
-            service in Oklahoma and Texas.
+            help in Oklahoma and Texas.
           </p>
           <div className="animate-rise-delay-3 mt-8 flex flex-wrap gap-3">
             <Link
@@ -77,15 +78,16 @@ export default function HomePage() {
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
             <p className="text-xs font-semibold tracking-[0.24em] text-crimson uppercase">
-              One brand. One headquarters.
+              How can Calvin help?
             </p>
             <h2 className="mt-3 max-w-xl font-display text-3xl font-bold text-navy sm:text-4xl">
-              Everything points here — every conversation, every lead, every next step.
+              One trusted guide for every step of your move.
             </h2>
           </div>
           <p className="max-w-md text-muted leading-relaxed">
-            Epic Real Estate, VIP Realty, and Homes for Heroes are affiliations and specialties under
-            your relationship with Calvin — not competing brands.
+            Whether you’re buying, selling, or investing, you’ll work directly with Calvin — supported
+            by {site.brokerages.oklahoma.name}, {site.brokerages.texas.name}, and Homes for Heroes when
+            those programs fit your goals.
           </p>
         </div>
 
@@ -118,10 +120,10 @@ export default function HomePage() {
           </div>
           <div>
             <p className="text-xs font-semibold tracking-[0.24em] text-crimson uppercase">
-              Where should they go next?
+              Ready when you are
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold text-navy">
-              Clear paths for every lead.
+              Choose your next step.
             </h2>
             <ul className="mt-8 space-y-4">
               {destinations.map((item) => (
@@ -140,11 +142,34 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section-shell py-16">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.24em] text-crimson uppercase">
+              Educational reels
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold text-navy">
+              Quick tips you can watch anytime.
+            </h2>
+          </div>
+          <Link
+            href="/resources/videos"
+            className="text-sm font-semibold text-crimson hover:text-crimson-deep"
+          >
+            See all videos →
+          </Link>
+        </div>
+        <p className="mt-4 max-w-2xl text-muted leading-relaxed">
+          Bite-sized real estate lessons covering buying, selling, and local market basics — the same
+          style of short videos Calvin shares on Facebook.
+        </p>
+      </section>
+
       <section className="section-shell grid gap-10 py-16 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="text-xs font-semibold tracking-[0.24em] text-crimson uppercase">About Calvin</p>
           <h2 className="mt-3 font-display text-3xl font-bold text-navy">
-            People hire people.
+            A Realtor who stays with you.
           </h2>
           <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-start">
             {brand.headshot.exists ? (
@@ -158,16 +183,16 @@ export default function HomePage() {
               </div>
             ) : null}
             <p className="leading-relaxed text-muted">
-              Calvin Lyman is a Realtor serving the OKC metro through {site.brokerages.oklahoma.name},
-              with Texas business through {site.brokerages.texas.name}. The website is the place every
-              social post, seminar, QR code, and conversation should send someone next.
+              Calvin helps buyers and sellers across the OKC metro through {site.brokerages.oklahoma.name},
+              with Texas transactions through {site.brokerages.texas.name}. You’ll get clear
+              communication, practical guidance, and a real person to call.
             </p>
           </div>
           <Link
             href="/about"
             className="mt-6 inline-flex text-sm font-semibold text-crimson hover:text-crimson-deep"
           >
-            Read Calvin&apos;s story →
+            Meet Calvin →
           </Link>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -193,7 +218,7 @@ export default function HomePage() {
         <LeadForm
           type="consultation"
           title="Schedule a consultation"
-          subtitle="Tell Calvin what you're working on. You'll get a personal follow-up — and market updates if you opt in."
+          subtitle="Tell Calvin what you’re working on. You’ll get a personal follow-up — and market updates if you’d like them."
           submitLabel="Request consultation"
         />
       </section>

@@ -15,14 +15,20 @@ function resolveAsset(preferred: string, fallback: string) {
   };
 }
 
+function resolveRequired(...candidates: string[]) {
+  const file = candidates.find((name) => existsSync(brandFile(name)));
+  return {
+    src: file ? `/brand/${file}` : `/brand/${candidates[0]}`,
+    exists: Boolean(file),
+  };
+}
+
 /** Resolves real brand files when present; falls back to included SVG marks. */
 export function getBrandAssets() {
   return {
-    headshot: {
-      src: "/brand/calvin-headshot.jpg",
-      exists: existsSync(brandFile("calvin-headshot.jpg")),
-    },
+    headshot: resolveRequired("calvin-headshot.jpg", "calvin-headshot.png"),
     epic: resolveAsset("epic-real-estate.png", "epic-real-estate.svg"),
+    vip: resolveRequired("vip-realty.png", "vip-realty-mark.png"),
     homesForHeroes: resolveAsset("homes-for-heroes.png", "homes-for-heroes.svg"),
     realtor: {
       src: "/brand/realtor.svg",

@@ -13,13 +13,13 @@ export default function HomeValuationPage() {
       <PageHero
         eyebrow="Sell"
         title="Home valuation"
-        description="Get a clear read on where your home stands in today's market — and what it would take to sell well."
+        description="Get a clear read on where your home stands in today’s market — and what it would take to sell well."
       />
       <section className="section-shell grid gap-10 py-14 lg:grid-cols-[1fr_1fr]">
         <div>
           <p className="text-lg leading-relaxed text-muted">
-            This isn&apos;t a generic online Zestimate dump. Share your property details and Calvin
-            will follow up with a personal conversation about price range, timing, and preparation.
+            This isn’t a generic online estimate. Share your property details and Calvin will follow
+            up with a personal conversation about price range, timing, and preparation.
           </p>
           <ul className="mt-8 space-y-3 text-navy">
             {[
@@ -37,7 +37,7 @@ export default function HomeValuationPage() {
         <LeadForm
           type="home-valuation"
           title="Request your valuation"
-          subtitle="Calvin will email/call you directly and can add you to ongoing market updates."
+          subtitle="Calvin will email or call you directly. You can also opt in for ongoing market updates."
           showAddress
           submitLabel="Request valuation"
         />
