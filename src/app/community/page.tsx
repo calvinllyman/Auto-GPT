@@ -7,7 +7,7 @@ import { getContentByKind } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Community",
   description:
-    "Neighborhood guides, local events, and business spotlights across Yukon, Mustang, and Oklahoma City.",
+    "Neighborhood guides, local events, and business spotlights across the Oklahoma City metro.",
 };
 
 export default function CommunityPage() {
@@ -27,8 +27,8 @@ export default function CommunityPage() {
           <div>
             <h2 className="font-display text-2xl font-bold text-navy">Neighborhood guides</h2>
             <p className="mt-2 max-w-2xl text-muted">
-              Start with Yukon, Mustang, and Oklahoma City — then ask Calvin which pockets fit your
-              lifestyle and budget.
+              Browse communities across the metro — west, north, south, east, and in-town — then ask
+              Calvin which pockets fit your lifestyle and budget.
             </p>
           </div>
           <Link href="/schedule" className="text-sm font-semibold text-crimson hover:text-crimson-deep">
