@@ -27,7 +27,7 @@ ctaLabel: Schedule a consult
 ctaHref: /schedule
 ---
 
-Body in simple Markdown (## headings, - lists, **bold**, [links](/path)).
+Body in simple Markdown (`##` / `###` headings, `-` or `1.` lists, `**bold**`, `*italic*`, `[links](/path)`).
 ```
 
 Do not invent school ratings, HOA fees, or testimonials. Keep local copy high-level and route readers to Calvin for specifics.

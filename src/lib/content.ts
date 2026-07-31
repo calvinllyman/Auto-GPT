@@ -27,8 +27,10 @@ export type ContentDoc = {
 const CONTENT_ROOT = path.join(process.cwd(), "content");
 
 function parseFrontmatter(raw: string): { data: Record<string, string>; body: string } {
-  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
-  if (!match) return { data: {}, body: raw.trim() };
+  // Normalize CRLF so markdown block splitting works the same on Windows and Linux builds
+  const text = raw.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!match) return { data: {}, body: text.trim() };
 
   const data: Record<string, string> = {};
   for (const line of match[1].split(/\r?\n/)) {
