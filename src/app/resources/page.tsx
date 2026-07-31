@@ -57,6 +57,11 @@ export default function ResourcesPage() {
               copy: "Neighborhood guides and local events across the metro.",
               href: "/community",
             },
+            {
+              title: "Rentals",
+              copy: "Tenant and landlord guides — applications, make-ready, pricing, and more.",
+              href: "/rentals",
+            },
           ].map((item) => (
             <Link
               key={item.title}

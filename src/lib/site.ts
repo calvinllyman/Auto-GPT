@@ -71,9 +71,10 @@ export const nav = [
     label: "Rentals",
     href: "/rentals",
     children: [
-      { label: "Available Rentals", href: "/rentals" },
+      { label: "Rentals Overview", href: "/rentals" },
       { label: "Tenant Resources", href: "/rentals/tenants" },
       { label: "Landlord Resources", href: "/rentals/landlords" },
+      { label: "How to Rent (Guide)", href: "/resources/guides/how-to-rent-okc-metro" },
     ],
   },
   {

@@ -1,32 +1,56 @@
 import type { Metadata } from "next";
-import { ContentPage } from "@/components/ContentPage";
+import Link from "next/link";
+import { PageHero } from "@/components/PageHero";
+import { ContentCard, contentHref } from "@/components/ContentBody";
+import { getContentByTag } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Landlord Resources",
-  description: "Landlord resources and rental guidance from Calvin Lyman.",
+  description:
+    "Landlord guides for the OKC metro — rental pricing, make-ready priorities, screening basics, and hold vs. sell.",
 };
 
 export default function LandlordsPage() {
+  const docs = getContentByTag(["landlords"]);
+
   return (
-    <ContentPage
-      eyebrow="Rentals"
-      title="Landlord resources"
-      description="Practical support for owners who want reliable tenants and clearer local intel."
-      intro="If you need help leasing a property or deciding whether to hold or sell, start with a conversation. Calvin can help you weigh pricing, make-ready priorities, and timing."
-      points={[
-        "Pricing and days-on-market context",
-        "Make-ready priorities that protect rent",
-        "When selling may beat holding",
-      ]}
-      links={[
-        { label: "Investors", href: "/buy/investors", description: "Acquisition strategy." },
-        {
-          label: "Home Valuation",
-          href: "/sell/home-valuation",
-          description: "Compare hold vs. sell.",
-        },
-      ]}
-      cta={{ label: "Talk landlord strategy", href: "/schedule" }}
-    />
+    <>
+      <PageHero
+        eyebrow="Rentals"
+        title="Landlord resources"
+        description="Clear frameworks for pricing, preparing, screening, and deciding whether to keep renting or sell."
+      />
+      <section className="section-shell py-14">
+        <p className="max-w-2xl text-lg leading-relaxed text-muted">
+          Whether you own one rental or several, these guides focus on practical decisions — cash
+          flow, vacancy risk, tenant quality, and timing — not vague slogans.
+        </p>
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {docs.map((doc) => (
+            <ContentCard
+              key={`${doc.kind}-${doc.slug}`}
+              href={contentHref(doc)}
+              title={doc.title}
+              description={doc.description}
+              meta={doc.kind}
+            />
+          ))}
+        </div>
+        <div className="mt-12 flex flex-wrap gap-4">
+          <Link
+            href="/schedule"
+            className="inline-flex rounded-md bg-crimson px-5 py-3 text-sm font-semibold text-white hover:bg-crimson-deep"
+          >
+            Talk landlord strategy
+          </Link>
+          <Link
+            href="/sell/home-valuation"
+            className="inline-flex rounded-md border border-[var(--line)] px-5 py-3 text-sm font-semibold text-navy hover:border-crimson/40"
+          >
+            Compare hold vs. sell with a valuation
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }

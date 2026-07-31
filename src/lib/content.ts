@@ -108,3 +108,15 @@ export function getContentDoc(kind: ContentKind, slug: string): ContentDoc | nul
 export function getAllContentSlugs(kind: ContentKind): string[] {
   return getContentByKind(kind).map((doc) => doc.slug);
 }
+
+/** Match any of the given tags (case-insensitive). */
+export function getContentByTag(
+  tags: string[],
+  kinds: ContentKind[] = ["guide", "checklist", "faq", "market-report"],
+): ContentDoc[] {
+  const wanted = new Set(tags.map((t) => t.toLowerCase()));
+  return kinds
+    .flatMap((kind) => getContentByKind(kind))
+    .filter((doc) => doc.tags.some((t) => wanted.has(t.toLowerCase())))
+    .sort((a, b) => (b.date || "").localeCompare(a.date || "") || a.title.localeCompare(b.title));
+}
