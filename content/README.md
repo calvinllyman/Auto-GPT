@@ -30,3 +30,15 @@ Body in simple Markdown (`##` / `###` headings, `-` or `1.` lists, `**bold**`, `
 ```
 
 Do not invent school ratings, HOA fees, or testimonials. Keep local copy high-level and route readers to Calvin for specifics.
+
+## Cornerstone article pattern (evergreen SEO)
+
+Prefer long-form guides that answer real search questions (not news). Each article should include:
+
+1. Search-friendly title + meta description  
+2. Relatable intro → thorough explanation → practical advice  
+3. How an experienced Realtor helps  
+4. Soft CTA (`ctaLabel` / `ctaHref`)  
+5. A companion Facebook caption in `content/social/queue/` that links back to the live URL  
+
+Target: build toward ~100 cornerstone articles for Yukon, Mustang, and the OKC metro.

@@ -40,6 +40,8 @@ Living checklist for the marketing site + automation build. Items stay here unti
 - [ ] IDX / home search integration
 - [x] Community content engine (neighborhoods, events) — markdown under `content/community/`
 - [x] Resources SEO machine (guides, checklists, market reports, FAQs) — markdown under `content/resources/`
+- [x] Cornerstone article #1: low appraisal guide + Publer companion post (Batch 02 / Aug 3 5pm)
+- [ ] Evergreen content library goal: ~100 cornerstone articles over 12–18 months (SEO Q&A pattern + social companion each time)
 - [x] Video CDN-ready plumbing (`NEXT_PUBLIC_VIDEO_CDN_BASE`, upload script, gitignore mp4s)
 - [ ] Enable Cloudflare R2 in dashboard + upload reels + set CDN env on Vercel (blocked until R2 enabled)
 - [x] QR / card / email-signature / Google Business destination alignment (`/start`, `branding/`)

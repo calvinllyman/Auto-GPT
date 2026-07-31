@@ -38,6 +38,14 @@ Create a file like `queue/2026-08-01-hfh-001.json`:
 }
 ```
 
-## Publishing
+## Publishing (current: Publer Free)
 
-Posts go through **Zapier → Facebook Pages** (already connected). No live posts until you approve the message + media.
+Primary path is **Publer Free** personal Facebook profile (push-to-post), via Desktop batch CSVs:
+
+- Batches: `Desktop\Publer_Free_Batches\`
+- How-to: `Desktop\HOW_TO_USE_PUBLER_FREE.txt`
+- Queue drafts in this repo: `content/social/queue/*.json`
+
+When a cornerstone article ships on the website, add a companion post to the next Publer batch **and** a matching `queue/*.json` file with the live article URL.
+
+Optional later: Zapier → Facebook Pages for fully automated publishing.

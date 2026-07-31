@@ -162,9 +162,23 @@ function renderBlock(block: string, index: number) {
     );
   }
 
+  // Pull-quote: a short italic-only paragraph
+  const joined = nonEmpty.join(" ");
+  if (/^\*[^*]+\*$/.test(joined.trim()) || /^"[^"]+"$/.test(joined.trim())) {
+    const quote = joined.trim().replace(/^\*|\*$/g, "").replace(/^"|"$/g, "");
+    return (
+      <blockquote
+        key={index}
+        className="border-l-4 border-crimson/70 pl-5 font-display text-xl leading-snug text-navy italic"
+      >
+        {quote}
+      </blockquote>
+    );
+  }
+
   return (
     <p key={index} className="text-muted">
-      {renderInline(nonEmpty.join(" "))}
+      {renderInline(joined)}
     </p>
   );
 }
