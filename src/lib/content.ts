@@ -4,7 +4,6 @@ import path from "path";
 export type ContentKind =
   | "neighborhood"
   | "event"
-  | "business"
   | "guide"
   | "faq"
   | "checklist"
@@ -56,8 +55,6 @@ function kindDir(kind: ContentKind) {
       return path.join(CONTENT_ROOT, "community", "neighborhoods");
     case "event":
       return path.join(CONTENT_ROOT, "community", "events");
-    case "business":
-      return path.join(CONTENT_ROOT, "community", "businesses");
     case "guide":
       return path.join(CONTENT_ROOT, "resources", "guides");
     case "faq":

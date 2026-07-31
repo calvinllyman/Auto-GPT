@@ -54,7 +54,7 @@ export default function ResourcesPage() {
             },
             {
               title: "Community",
-              copy: "Neighborhood guides, events, and local spotlights.",
+              copy: "Neighborhood guides and local events across the metro.",
               href: "/community",
             },
           ].map((item) => (

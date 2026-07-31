@@ -8,7 +8,6 @@ Markdown files with YAML-ish frontmatter power Community and Resources pages.
 | --- | --- | --- |
 | Neighborhood | `content/community/neighborhoods/*.md` | `/community/{slug}` |
 | Event | `content/community/events/*.md` | `/community/events/{slug}` |
-| Business | `content/community/businesses/*.md` | `/community/businesses/{slug}` |
 | Guide | `content/resources/guides/*.md` | `/resources/guides/{slug}` |
 | FAQ | `content/resources/faqs/*.md` | `/resources/faqs/{slug}` |
 | Checklist | `content/resources/checklists/*.md` | `/resources/checklists/{slug}` |

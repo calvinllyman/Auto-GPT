@@ -27,7 +27,6 @@ const staticPaths = [
   "/resources/videos",
   "/community",
   "/community/events",
-  "/community/businesses",
   "/about",
   "/contact",
   "/schedule",
@@ -40,7 +39,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const contentKinds = [
     "neighborhood",
     "event",
-    "business",
     "guide",
     "faq",
     "checklist",

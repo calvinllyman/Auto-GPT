@@ -38,7 +38,7 @@ Living checklist for the marketing site + automation build. Items stay here unti
 - [ ] Homes for Heroes affiliate portal asset pack (optional deeper library; Plan A captions already running)
 - [ ] Plan B: Sheets → Publer Zap automation (optional later)
 - [ ] IDX / home search integration
-- [x] Community content engine (neighborhoods, events, business spotlights) — markdown under `content/community/`
+- [x] Community content engine (neighborhoods, events) — markdown under `content/community/`
 - [x] Resources SEO machine (guides, checklists, market reports, FAQs) — markdown under `content/resources/`
 - [x] Video CDN-ready plumbing (`NEXT_PUBLIC_VIDEO_CDN_BASE`, upload script, gitignore mp4s)
 - [ ] Enable Cloudflare R2 in dashboard + upload reels + set CDN env on Vercel (blocked until R2 enabled)

@@ -94,7 +94,6 @@ export const nav = [
     children: [
       { label: "Neighborhoods", href: "/community" },
       { label: "Events", href: "/community/events" },
-      { label: "Business Spotlights", href: "/community/businesses" },
     ],
   },
   { label: "About", href: "/about" },

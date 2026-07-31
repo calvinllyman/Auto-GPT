@@ -211,8 +211,6 @@ export function contentHref(doc: ContentDoc) {
       return `/community/${doc.slug}`;
     case "event":
       return `/community/events/${doc.slug}`;
-    case "business":
-      return `/community/businesses/${doc.slug}`;
     case "guide":
       return `/resources/guides/${doc.slug}`;
     case "faq":
