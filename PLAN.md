@@ -14,23 +14,47 @@ Living checklist for the marketing site + automation build. Items stay here unti
 - [x] User-facing copy pass (removed internal/meta voice)
 - [x] Header CTA white text + footer logo rendering QA
 - [x] Educational reels library at `/resources/videos` (11 Facebook reels)
+- [x] Vercel project `calvin-lyman-real-estate` deployed
+- [x] Custom domains added in Vercel (`calvinlymanrealestate.com` + `www`) — DNS pointed
+- [x] GoDaddy zone verified: A `@` + `www` → `76.76.21.21` (HTTP live; HTTPS cert provisioning)
+- [x] HTTPS working on custom domain
+- [x] Resend API key added (Vercel + local); domain `calvinlymanrealestate.com` created in Resend
+- [x] Resend domain verified (DKIM + SPF); test lead email sent to calvinlyman@gmail.com
+- [x] Publer Free Plan A live (Batch 01 imported; refill calendar through Dec)
 
 ## Next / blocked on Calvin
+- [ ] Enable Cloudflare R2 (Dashboard → R2), then upload reels + set `NEXT_PUBLIC_VIDEO_CDN_BASE` on Vercel (see `branding/VIDEO_CDN.md`)
 - [ ] Optional HubSpot subscription type ID for marketing consent
-- [ ] Resend API key + from-domain verification (email alerts on new leads)
+- [ ] Rotate Resend API key (was shared in chat) and update Vercel
 - [ ] Instagram / YouTube / Google Business / TikTok URLs when ready
 - [ ] Official REALTOR® logo from NAR (optional upgrade over placeholder)
 - [ ] Official Calvin Lyman wordmark/logo if separate from text brand
 - [ ] Confirm/adjust tagline wording if desired
 - [ ] Provide real titles/topics for each educational reel (`src/lib/reels.ts`)
+- [ ] Solicit past-client testimonials (quotes + permission) for Home/About
 
 ## Later plan steps
-- [ ] **Download all Homes for Heroes social media resources** for the automatic Facebook publisher
-- [ ] Automatic Facebook publisher pipeline (uses HFH assets + original content)
-- [ ] Solicit past-client testimonials (quotes + permission) for Home/About
+- [x] Facebook publishing Plan A (Publer Free batches) — handled with companion agent
+- [ ] Homes for Heroes affiliate portal asset pack (optional deeper library; Plan A captions already running)
+- [ ] Plan B: Sheets → Publer Zap automation (optional later)
 - [ ] IDX / home search integration
-- [ ] Community content engine (neighborhoods, events, business spotlights)
-- [ ] Resources SEO machine (guides, checklists, market reports, FAQs)
-- [ ] Move large video hosting to CDN (R2/Mux/YouTube) before production scale
-- [ ] Vercel deploy + `CalvinLymanRealEstate.com` DNS
-- [ ] QR / card / email-signature / Google Business destination alignment
+- [x] Community content engine (neighborhoods, events, business spotlights) — markdown under `content/community/`
+- [x] Resources SEO machine (guides, checklists, market reports, FAQs) — markdown under `content/resources/`
+- [x] Video CDN-ready plumbing (`NEXT_PUBLIC_VIDEO_CDN_BASE`, upload script, gitignore mp4s)
+- [ ] Enable Cloudflare R2 in dashboard + upload reels + set CDN env on Vercel (blocked until R2 enabled)
+- [x] QR / card / email-signature / Google Business destination alignment (`/start`, `branding/`)
+
+### GoDaddy DNS — site (done)
+| Type | Name | Value |
+| --- | --- | --- |
+| A | `@` | `76.76.21.21` |
+| A | `www` | `76.76.21.21` |
+
+### GoDaddy DNS — Resend email (done)
+| Type | Name | Value | Priority |
+| --- | --- | --- | --- |
+| TXT | `resend._domainkey` | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCijYstKSr7DzYhoBF9osks8RcxhxDO+JDmscjZzfs5vbMt+cwqecLX0DvzNsdLV9oYh3XA09jR3sqmsan04HawFu3eLAO1FPsAaZJMZKdBOckT/9aO0RD5oY1tvx9I8oPsQvQwdDRTmabXAlKBd8tjqaQq+vMlhVQjQZVJ8duBVQIDAQAB` | — |
+| MX | `send` | `feedback-smtp.us-east-1.amazonses.com` | `10` |
+| TXT | `send` | `v=spf1 include:amazonses.com ~all` | — |
+
+Live: https://calvinlymanrealestate.com

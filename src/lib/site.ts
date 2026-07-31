@@ -76,11 +76,27 @@ export const nav = [
       { label: "Landlord Resources", href: "/rentals/landlords" },
     ],
   },
-  { label: "Resources", href: "/resources", children: [
+  {
+    label: "Resources",
+    href: "/resources",
+    children: [
       { label: "All Resources", href: "/resources" },
+      { label: "Guides", href: "/resources/guides" },
+      { label: "Checklists", href: "/resources/checklists" },
+      { label: "FAQs", href: "/resources/faqs" },
+      { label: "Market Reports", href: "/resources/market-reports" },
       { label: "Videos", href: "/resources/videos" },
-    ] },
-  { label: "Community", href: "/community" },
+    ],
+  },
+  {
+    label: "Community",
+    href: "/community",
+    children: [
+      { label: "Neighborhoods", href: "/community" },
+      { label: "Events", href: "/community/events" },
+      { label: "Business Spotlights", href: "/community/businesses" },
+    ],
+  },
   { label: "About", href: "/about" },
 ] as const;
 

@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large educational reels — host on CDN (see branding/VIDEO_CDN.md)
+# Keep files locally for upload; do not ship in git/deploy once CDN is live.
+/public/videos/reels/*.mp4

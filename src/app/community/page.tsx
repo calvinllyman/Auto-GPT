@@ -1,31 +1,101 @@
 import type { Metadata } from "next";
-import { ContentPage } from "@/components/ContentPage";
+import Link from "next/link";
+import { PageHero } from "@/components/PageHero";
+import { ContentCard, contentHref } from "@/components/ContentBody";
+import { getContentByKind } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Community",
   description:
-    "Neighborhood guides, schools, parks, restaurants, HOAs, and local events across the OKC metro.",
+    "Neighborhood guides, local events, and business spotlights across Yukon, Mustang, and Oklahoma City.",
 };
 
 export default function CommunityPage() {
+  const neighborhoods = getContentByKind("neighborhood");
+  const events = getContentByKind("event");
+  const businesses = getContentByKind("business");
+
   return (
-    <ContentPage
-      eyebrow="Community"
-      title="Life around the OKC metro"
-      description="Neighborhood guides, restaurants, parks, schools, HOA notes, local events, and business spotlights."
-      intro="Exploring where to live is about more than a floor plan. Start with Yukon, Mustang, and Oklahoma City — then ask Calvin about the neighborhoods that fit your day-to-day life."
-      points={[
-        "Neighborhood guides with real lifestyle context",
-        "Schools, parks, and daily-life amenities",
-        "HOA patterns to know before you buy",
-        "Weekend events and local business spotlights",
-      ]}
-      links={[
-        { label: "Buy a Home", href: "/buy", description: "Match a neighborhood to your goals." },
-        { label: "Resources", href: "/resources", description: "Deeper guides and market notes." },
-        { label: "About Calvin", href: "/about", description: "Community involvement and story." },
-      ]}
-      cta={{ label: "Ask about a neighborhood", href: "/contact" }}
-    />
+    <>
+      <PageHero
+        eyebrow="Community"
+        title="Life around the OKC metro"
+        description="Neighborhood guides, local events, and business spotlights — so you can picture daily life before you buy or sell."
+      />
+      <section className="section-shell py-14">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="font-display text-2xl font-bold text-navy">Neighborhood guides</h2>
+            <p className="mt-2 max-w-2xl text-muted">
+              Start with Yukon, Mustang, and Oklahoma City — then ask Calvin which pockets fit your
+              lifestyle and budget.
+            </p>
+          </div>
+          <Link href="/schedule" className="text-sm font-semibold text-crimson hover:text-crimson-deep">
+            Ask about a neighborhood →
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {neighborhoods.map((doc) => (
+            <ContentCard
+              key={doc.slug}
+              href={contentHref(doc)}
+              title={doc.title}
+              description={doc.description}
+              meta={doc.city}
+            />
+          ))}
+        </div>
+
+        <div className="mt-16 grid gap-10 lg:grid-cols-2">
+          <div>
+            <h2 className="font-display text-2xl font-bold text-navy">Local events</h2>
+            <p className="mt-2 text-muted">
+              Community calendars help you feel the rhythm of a place — not just the floor plan.
+            </p>
+            <div className="mt-6 space-y-4">
+              {events.map((doc) => (
+                <ContentCard
+                  key={doc.slug}
+                  href={contentHref(doc)}
+                  title={doc.title}
+                  description={doc.description}
+                  meta={doc.city}
+                />
+              ))}
+            </div>
+            <Link
+              href="/community/events"
+              className="mt-4 inline-flex text-sm font-semibold text-crimson hover:text-crimson-deep"
+            >
+              All events →
+            </Link>
+          </div>
+          <div>
+            <h2 className="font-display text-2xl font-bold text-navy">Business spotlights</h2>
+            <p className="mt-2 text-muted">
+              Local spots that shape daily life across the west metro and Oklahoma City.
+            </p>
+            <div className="mt-6 space-y-4">
+              {businesses.map((doc) => (
+                <ContentCard
+                  key={doc.slug}
+                  href={contentHref(doc)}
+                  title={doc.title}
+                  description={doc.description}
+                  meta={doc.city}
+                />
+              ))}
+            </div>
+            <Link
+              href="/community/businesses"
+              className="mt-4 inline-flex text-sm font-semibold text-crimson hover:text-crimson-deep"
+            >
+              All spotlights →
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

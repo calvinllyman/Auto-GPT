@@ -1,62 +1,63 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
+import { ContentCard, contentHref } from "@/components/ContentBody";
 import { LeadForm } from "@/components/LeadForm";
+import { getContentByKind } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Resources",
   description:
-    "Articles, guides, videos, checklists, market reports, and FAQs from Calvin Lyman Real Estate.",
+    "Guides, checklists, FAQs, market reports, and educational videos from Calvin Lyman Real Estate.",
 };
 
-const resourceTypes = [
-  {
-    title: "Articles",
-    copy: "Straightforward answers to real buyer and seller questions.",
-    href: "/resources",
-  },
-  {
-    title: "Guides",
-    copy: "First-time buyers, VA, investors, and local move checklists.",
-    href: "/buy/first-time-buyers",
-  },
-  {
-    title: "Videos",
-    copy: "Bite-sized educational reels on real estate subjects.",
-    href: "/resources/videos",
-  },
-  {
-    title: "Downloads",
-    copy: "Workbooks, checklists, and practical tools.",
-    href: "/resources",
-  },
-  {
-    title: "Market Reports",
-    copy: "Local snapshots to help you track the OKC metro.",
-    href: "/resources",
-  },
-  {
-    title: "FAQs",
-    copy: "Clear answers that help you decide what to do next.",
-    href: "/resources",
-  },
-];
-
 export default function ResourcesPage() {
+  const guides = getContentByKind("guide");
+  const checklists = getContentByKind("checklist");
+  const faqs = getContentByKind("faq");
+  const reports = getContentByKind("market-report");
+
   return (
     <>
       <PageHero
         eyebrow="Resources"
         title="Guides and answers for your next move"
-        description="Browse articles, guides, videos, checklists, market reports, and FAQs — then take the next step that fits your goals."
+        description="Browse guides, checklists, FAQs, market reports, and educational reels — then take the next step that fits your goals."
       />
       <section className="section-shell py-14">
-        <p className="max-w-2xl text-lg leading-relaxed text-muted">
-          Whether you’re buying, selling, or exploring the OKC metro, these resources are here to
-          help you make clearer decisions — and know exactly where to go next.
-        </p>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {resourceTypes.map((item) => (
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              title: "Guides",
+              copy: "Plain-English explainers for buyers, sellers, and community heroes.",
+              href: "/resources/guides",
+            },
+            {
+              title: "Checklists",
+              copy: "Practical lists you can use before touring, listing, or closing.",
+              href: "/resources/checklists",
+            },
+            {
+              title: "FAQs",
+              copy: "Clear answers that help you decide what to do next.",
+              href: "/resources/faqs",
+            },
+            {
+              title: "Market reports",
+              copy: "How to read local stats — and when to ask for a personal take.",
+              href: "/resources/market-reports",
+            },
+            {
+              title: "Videos",
+              copy: "Bite-sized educational reels on real estate subjects.",
+              href: "/resources/videos",
+            },
+            {
+              title: "Community",
+              copy: "Neighborhood guides, events, and local spotlights.",
+              href: "/community",
+            },
+          ].map((item) => (
             <Link
               key={item.title}
               href={item.href}
@@ -64,31 +65,98 @@ export default function ResourcesPage() {
             >
               <h2 className="font-display text-lg font-semibold text-navy">{item.title}</h2>
               <p className="mt-2 text-sm text-muted">{item.copy}</p>
-              {item.title === "Videos" ? (
-                <p className="mt-4 text-sm font-semibold text-crimson">Watch reels →</p>
-              ) : null}
+              <p className="mt-4 text-sm font-semibold text-crimson">Browse →</p>
             </Link>
           ))}
         </div>
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
-          <div>
-            <h3 className="font-display text-2xl font-bold text-navy">Start here</h3>
-            <ul className="mt-5 space-y-3">
-              {[
-                { href: "/resources/videos", label: "Educational reels" },
-                { href: "/buy/first-time-buyers", label: "First-Time Buyer Guide" },
-                { href: "/buy/homes-for-heroes", label: "Homes for Heroes" },
-                { href: "/community", label: "Community guides" },
-                { href: "/schedule", label: "Book a consultation" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="font-medium text-crimson hover:text-crimson-deep">
-                    {link.label} →
-                  </Link>
-                </li>
-              ))}
-            </ul>
+
+        <div className="mt-16">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-display text-2xl font-bold text-navy">Latest guides</h2>
+            <Link href="/resources/guides" className="text-sm font-semibold text-crimson hover:text-crimson-deep">
+              All guides →
+            </Link>
           </div>
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
+            {guides.map((doc) => (
+              <ContentCard
+                key={doc.slug}
+                href={contentHref(doc)}
+                title={doc.title}
+                description={doc.description}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16 grid gap-10 lg:grid-cols-2">
+          <div>
+            <div className="flex items-end justify-between gap-3">
+              <h2 className="font-display text-2xl font-bold text-navy">Checklists</h2>
+              <Link
+                href="/resources/checklists"
+                className="text-sm font-semibold text-crimson hover:text-crimson-deep"
+              >
+                All →
+              </Link>
+            </div>
+            <div className="mt-6 space-y-4">
+              {checklists.map((doc) => (
+                <ContentCard
+                  key={doc.slug}
+                  href={contentHref(doc)}
+                  title={doc.title}
+                  description={doc.description}
+                />
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="flex items-end justify-between gap-3">
+              <h2 className="font-display text-2xl font-bold text-navy">FAQs</h2>
+              <Link
+                href="/resources/faqs"
+                className="text-sm font-semibold text-crimson hover:text-crimson-deep"
+              >
+                All →
+              </Link>
+            </div>
+            <div className="mt-6 space-y-4">
+              {faqs.map((doc) => (
+                <ContentCard
+                  key={doc.slug}
+                  href={contentHref(doc)}
+                  title={doc.title}
+                  description={doc.description}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <div className="flex items-end justify-between gap-3">
+            <h2 className="font-display text-2xl font-bold text-navy">Market reports</h2>
+            <Link
+              href="/resources/market-reports"
+              className="text-sm font-semibold text-crimson hover:text-crimson-deep"
+            >
+              All →
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
+            {reports.map((doc) => (
+              <ContentCard
+                key={doc.slug}
+                href={contentHref(doc)}
+                title={doc.title}
+                description={doc.description}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16 max-w-xl">
           <LeadForm
             type="newsletter"
             title="Join the email list"
