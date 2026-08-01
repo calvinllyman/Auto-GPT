@@ -10,6 +10,8 @@ type LeadFormProps = {
   subtitle?: string;
   showAddress?: boolean;
   submitLabel?: string;
+  defaultAddress?: string;
+  defaultMessage?: string;
 };
 
 export function LeadForm({
@@ -18,6 +20,8 @@ export function LeadForm({
   subtitle = "Share your details and Calvin will follow up personally.",
   showAddress = false,
   submitLabel = "Send message",
+  defaultAddress = "",
+  defaultMessage = "",
 }: LeadFormProps) {
   const [pending, startTransition] = useTransition();
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -105,6 +109,7 @@ export function LeadForm({
               </span>
               <input
                 name="address"
+                defaultValue={defaultAddress}
                 className="w-full border border-[var(--line)] bg-stone px-3 py-3 text-sm outline-none ring-crimson/30 transition focus:ring-2"
                 placeholder="Street, city, ZIP"
               />
@@ -117,7 +122,8 @@ export function LeadForm({
             </span>
             <textarea
               name="message"
-              rows={4}
+              rows={defaultMessage ? 7 : 4}
+              defaultValue={defaultMessage}
               className="w-full resize-y border border-[var(--line)] bg-stone px-3 py-3 text-sm outline-none ring-crimson/30 transition focus:ring-2"
               placeholder="Tell me a bit about your goals..."
             />

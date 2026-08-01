@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
-import { LeadForm } from "@/components/LeadForm";
+import { HomeValueCalculator } from "@/components/HomeValueCalculator";
 
 export const metadata: Metadata = {
   title: "Home Valuation",
-  description: "Request a home valuation from Calvin Lyman in the OKC metro.",
+  description:
+    "Estimate your OKC metro home’s planning value with an interactive walkthrough, then talk with Calvin Lyman to refine it with local comps.",
 };
 
 export default function HomeValuationPage() {
@@ -12,35 +14,59 @@ export default function HomeValuationPage() {
     <>
       <PageHero
         eyebrow="Sell"
-        title="Home valuation"
-        description="Get a clear read on where your home stands in today’s market — and what it would take to sell well."
+        title="What might your home be worth?"
+        description="Walk through a clear estimate based on location, size, condition, and updates — then refine it with a personal valuation conversation."
       />
-      <section className="section-shell grid gap-10 py-14 lg:grid-cols-[1fr_1fr]">
-        <div>
+      <section className="section-shell py-14">
+        <div className="mx-auto max-w-3xl text-center">
           <p className="text-lg leading-relaxed text-muted">
-            This isn’t a generic online estimate. Share your property details and Calvin will follow
-            up with a personal conversation about price range, timing, and preparation.
+            Online averages can’t see your street, your updates, or today’s buyer pool. This
+            calculator gives you a{" "}
+            <span className="font-semibold text-navy">planning range</span> in a few steps — then
+            Calvin helps turn it into a real pricing strategy.
           </p>
-          <ul className="mt-8 space-y-3 text-navy">
-            {[
-              "Local comps and current buyer demand",
-              "Condition and improvement recommendations",
-              "Go-to-market timing based on your goals",
-            ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-crimson" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
         </div>
-        <LeadForm
-          type="home-valuation"
-          title="Request your valuation"
-          subtitle="Calvin will email or call you directly. You can also opt in for ongoing market updates."
-          showAddress
-          submitLabel="Request valuation"
-        />
+
+        <div className="mx-auto mt-10 max-w-4xl">
+          <HomeValueCalculator />
+        </div>
+
+        <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-3">
+          {[
+            {
+              title: "Start with a range",
+              copy: "Answer practical questions about area, size, condition, and updates.",
+            },
+            {
+              title: "See what moved the number",
+              copy: "Understand the drivers behind the estimate — not a mysterious black box.",
+            },
+            {
+              title: "Refine with Calvin",
+              copy: "Request a personal valuation grounded in local comps and your timeline.",
+            },
+          ].map((item) => (
+            <div key={item.title}>
+              <h2 className="font-display text-lg font-semibold text-navy">{item.title}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{item.copy}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mx-auto mt-10 max-w-3xl text-center text-sm text-muted">
+          Prefer to skip the calculator?{" "}
+          <Link href="/schedule" className="font-semibold text-crimson hover:text-crimson-deep">
+            Schedule a consultation
+          </Link>{" "}
+          or read{" "}
+          <Link
+            href="/resources/guides/selling-your-home-okc-metro"
+            className="font-semibold text-crimson hover:text-crimson-deep"
+          >
+            how selling works in the OKC metro
+          </Link>
+          .
+        </p>
       </section>
     </>
   );
