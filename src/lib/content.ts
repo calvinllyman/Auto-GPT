@@ -19,6 +19,15 @@ export type ContentDoc = {
   tags: string[];
   ctaLabel?: string;
   ctaHref?: string;
+  /** ISO date (YYYY-MM-DD) for event start — used for sorting/upcoming */
+  eventDate?: string;
+  eventEndDate?: string;
+  eventTime?: string;
+  location?: string;
+  hostedBy?: string;
+  image?: string;
+  featured?: boolean;
+  externalUrl?: string;
   body: string;
   filePath: string;
 };
@@ -85,9 +94,27 @@ function toDoc(kind: ContentKind, filePath: string): ContentDoc {
       : [],
     ctaLabel: data.ctaLabel,
     ctaHref: data.ctaHref,
+    eventDate: data.eventDate,
+    eventEndDate: data.eventEndDate,
+    eventTime: data.eventTime,
+    location: data.location,
+    hostedBy: data.hostedBy,
+    image: data.image,
+    featured: data.featured === "true" || data.featured === "yes",
+    externalUrl: data.externalUrl,
     body,
     filePath,
   };
+}
+
+function sortContent(a: ContentDoc, b: ContentDoc) {
+  if (a.kind === "event" || b.kind === "event") {
+    const aKey = a.eventDate || a.date || "";
+    const bKey = b.eventDate || b.date || "";
+    // Upcoming-first chronological for events
+    return aKey.localeCompare(bKey) || a.title.localeCompare(b.title);
+  }
+  return (b.date || "").localeCompare(a.date || "") || a.title.localeCompare(b.title);
 }
 
 export function getContentByKind(kind: ContentKind): ContentDoc[] {
@@ -96,7 +123,48 @@ export function getContentByKind(kind: ContentKind): ContentDoc[] {
   return readdirSync(dir)
     .filter((name) => name.endsWith(".md"))
     .map((name) => toDoc(kind, path.join(dir, name)))
-    .sort((a, b) => (b.date || "").localeCompare(a.date || "") || a.title.localeCompare(b.title));
+    .sort(sortContent);
+}
+
+export function getUpcomingEvents(referenceDate = new Date()): ContentDoc[] {
+  const today = referenceDate.toISOString().slice(0, 10);
+  return getContentByKind("event").filter((doc) => {
+    const end = doc.eventEndDate || doc.eventDate || doc.date || "";
+    return end >= today;
+  });
+}
+
+export function getPastEvents(referenceDate = new Date()): ContentDoc[] {
+  const today = referenceDate.toISOString().slice(0, 10);
+  return getContentByKind("event")
+    .filter((doc) => {
+      const end = doc.eventEndDate || doc.eventDate || doc.date || "";
+      return end < today;
+    })
+    .sort((a, b) => (b.eventDate || b.date || "").localeCompare(a.eventDate || a.date || ""));
+}
+
+export function formatEventDateLabel(doc: ContentDoc) {
+  const start = doc.eventDate || doc.date;
+  if (!start) return "";
+  const startDate = new Date(`${start}T12:00:00`);
+  const startLabel = startDate.toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+  if (doc.eventEndDate && doc.eventEndDate !== start) {
+    const endDate = new Date(`${doc.eventEndDate}T12:00:00`);
+    const endLabel = endDate.toLocaleDateString("en-US", {
+      weekday: "short",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
+    return `${startLabel} – ${endLabel}`;
+  }
+  return startLabel;
 }
 
 export function getContentDoc(kind: ContentKind, slug: string): ContentDoc | null {

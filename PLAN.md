@@ -43,6 +43,7 @@ Living checklist for the marketing site + automation build. Items stay here unti
 - [x] Cornerstone article #1: low appraisal guide + Publer companion post (Batch 02 / Aug 3 5pm)
 - [x] Content quality pass: rental guide library + deepened buy/sell guides (closing costs, VA, HFH, option period, offers, inspections, seller prep)
 - [ ] Evergreen content library goal: ~100 cornerstone articles over 12–18 months (SEO Q&A pattern + social companion each time)
+- [x] Local events calendar beefed up (Calvin’s Safety Awareness Day + Yukon/Edmond metro events)
 - [ ] Continue deepening remaining neighborhood pages beyond Yukon / Mustang / Edmond
 - [x] Video CDN-ready plumbing (`NEXT_PUBLIC_VIDEO_CDN_BASE`, upload script, gitignore mp4s)
 - [ ] Enable Cloudflare R2 in dashboard + upload reels + set CDN env on Vercel (blocked until R2 enabled)

@@ -8,6 +8,8 @@ Markdown files with YAML-ish frontmatter power Community and Resources pages.
 | --- | --- | --- |
 | Neighborhood | `content/community/neighborhoods/*.md` | `/community/{slug}` |
 | Event | `content/community/events/*.md` | `/community/events/{slug}` |
+
+Event frontmatter extras: `eventDate`, `eventEndDate`, `eventTime`, `location`, `hostedBy`, `image`, `featured: true`, `externalUrl`.
 | Guide | `content/resources/guides/*.md` | `/resources/guides/{slug}` |
 | FAQ | `content/resources/faqs/*.md` | `/resources/faqs/{slug}` |
 | Checklist | `content/resources/checklists/*.md` | `/resources/checklists/{slug}` |
