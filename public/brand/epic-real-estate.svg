@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" role="img" aria-label="Epic Real Estate">
+  <g transform="translate(40,10)">
+    <!-- E mark -->
+    <rect x="0" y="0" width="42" height="140" fill="#db392b"/>
+    <path d="M0 18 L0 122 L28 122 L28 108 L14 108 L14 80 L26 80 L26 66 L14 66 L14 32 L28 32 L28 18 Z" fill="#111"/>
+    <circle cx="21" cy="90" r="5" fill="#fff"/>
+    <polygon points="58,0 160,0 58,46" fill="#db392b"/>
+    <polygon points="70,58 130,70 70,82" fill="#db392b"/>
+    <polygon points="58,94 160,140 58,140" fill="#db392b"/>
+  </g>
+  <text x="120" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" letter-spacing="10" fill="#111">EPIC</text>
+  <text x="120" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="14" letter-spacing="4" fill="#111">REAL ESTATE</text>
+</svg>

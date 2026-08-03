@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="Equal Housing Opportunity">
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#2d465c" stroke-width="4"/>
+  <path d="M30 62 L60 34 L90 62 V96 H30 Z" fill="none" stroke="#2d465c" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="52" y="72" width="16" height="24" fill="none" stroke="#2d465c" stroke-width="4"/>
+  <line x1="44" y1="52" x2="76" y2="52" stroke="#2d465c" stroke-width="4"/>
+  <line x1="44" y1="62" x2="76" y2="62" stroke="#2d465c" stroke-width="4"/>
+  <text x="60" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#2d465c">EQUAL HOUSING</text>
+  <text x="60" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#2d465c">OPPORTUNITY</text>
+</svg>

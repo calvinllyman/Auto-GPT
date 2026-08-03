@@ -1,0 +1,98 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageHero } from "@/components/PageHero";
+import { ContentCard, contentHref } from "@/components/ContentBody";
+import { EventCard } from "@/components/EventCard";
+import { getContentByKind, getUpcomingEvents } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Community",
+  description:
+    "Neighborhood guides and local events across the Oklahoma City metro.",
+};
+
+export default function CommunityPage() {
+  const neighborhoods = getContentByKind("neighborhood");
+  const upcoming = getUpcomingEvents();
+  const featured = upcoming.find((e) => e.featured);
+  const eventPreview = upcoming.filter((e) => e.slug !== featured?.slug).slice(0, 4);
+
+  return (
+    <>
+      <PageHero
+        eyebrow="Community"
+        title="Life around the OKC metro"
+        description="Neighborhood guides and local events — so you can picture daily life before you buy or sell."
+      />
+      <section className="section-shell py-14">
+        {featured ? (
+          <div className="mb-16">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 className="font-display text-2xl font-bold text-navy">Coming up — hosted by Calvin</h2>
+                <p className="mt-2 max-w-2xl text-muted">
+                  Join neighbors for Community Safety Awareness Day in Yukon this September.
+                </p>
+              </div>
+              <Link
+                href="/community/events"
+                className="text-sm font-semibold text-crimson hover:text-crimson-deep"
+              >
+                All events →
+              </Link>
+            </div>
+            <div className="mt-6">
+              <EventCard doc={featured} featured />
+            </div>
+          </div>
+        ) : null}
+
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="font-display text-2xl font-bold text-navy">Neighborhood guides</h2>
+            <p className="mt-2 max-w-2xl text-muted">
+              Browse communities across the metro — west, north, south, east, and in-town — then ask
+              Calvin which pockets fit your lifestyle and budget.
+            </p>
+          </div>
+          <Link href="/schedule" className="text-sm font-semibold text-crimson hover:text-crimson-deep">
+            Ask about a neighborhood →
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          {neighborhoods.map((doc) => (
+            <ContentCard
+              key={doc.slug}
+              href={contentHref(doc)}
+              title={doc.title}
+              description={doc.description}
+              meta={doc.city}
+            />
+          ))}
+        </div>
+
+        <div className="mt-16">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="font-display text-2xl font-bold text-navy">More local events</h2>
+              <p className="mt-2 max-w-2xl text-muted">
+                Festivals and downtown nights across Yukon, Edmond, and the broader metro.
+              </p>
+            </div>
+            <Link
+              href="/community/events"
+              className="text-sm font-semibold text-crimson hover:text-crimson-deep"
+            >
+              Full calendar →
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {eventPreview.map((doc) => (
+              <EventCard key={doc.slug} doc={doc} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
