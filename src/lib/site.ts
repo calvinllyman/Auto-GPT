@@ -53,6 +53,10 @@ export const nav = [
       { label: "Home Search", href: "/buy" },
       { label: "First-Time Buyers", href: "/buy/first-time-buyers" },
       { label: "Homes for Heroes", href: "/buy/homes-for-heroes" },
+      {
+        label: "Homeownership for Heroes Workshop",
+        href: "/resources/homeownership-for-heroes-workshop",
+      },
       { label: "VA Buyers", href: "/buy/va-buyers" },
       { label: "Investors", href: "/buy/investors" },
     ],
@@ -62,6 +66,7 @@ export const nav = [
     href: "/sell",
     children: [
       { label: "Home Valuation", href: "/sell/home-valuation" },
+      { label: "The ClearPath System™", href: "/resources/clearpath" },
       { label: "Selling Process", href: "/sell/selling-process" },
       { label: "Marketing Strategy", href: "/sell/marketing" },
       { label: "Recent Sales", href: "/sell/recent-sales" },
@@ -82,6 +87,11 @@ export const nav = [
     href: "/resources",
     children: [
       { label: "All Resources", href: "/resources" },
+      { label: "The ClearPath System™", href: "/resources/clearpath" },
+      {
+        label: "Homeownership for Heroes Workshop",
+        href: "/resources/homeownership-for-heroes-workshop",
+      },
       { label: "Guides", href: "/resources/guides" },
       { label: "Checklists", href: "/resources/checklists" },
       { label: "FAQs", href: "/resources/faqs" },
@@ -105,4 +115,6 @@ export type LeadType =
   | "home-valuation"
   | "buyer-guide"
   | "newsletter"
+  | "workshop"
+  | "ebook"
   | "general";

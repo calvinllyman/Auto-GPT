@@ -20,6 +20,8 @@ const staticPaths = [
   "/rentals/tenants",
   "/rentals/landlords",
   "/resources",
+  "/resources/clearpath",
+  "/resources/homeownership-for-heroes-workshop",
   "/resources/guides",
   "/resources/checklists",
   "/resources/faqs",

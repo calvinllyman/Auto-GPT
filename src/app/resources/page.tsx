@@ -28,6 +28,16 @@ export default function ResourcesPage() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
+              title: "The ClearPath System™",
+              copy: "Free ebook — Calvin’s peace-driven guide to selling in the OKC metro.",
+              href: "/resources/clearpath",
+            },
+            {
+              title: "Homeownership for Heroes Workshop",
+              copy: "Free employee wellness lunch-and-learns for organizations and heroes.",
+              href: "/resources/homeownership-for-heroes-workshop",
+            },
+            {
               title: "Guides",
               copy: "Plain-English explainers for buyers, sellers, and community heroes.",
               href: "/resources/guides",
